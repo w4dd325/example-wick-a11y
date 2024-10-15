@@ -3,6 +3,7 @@
   "description": "An example project showing how to setup wick-a11y",
   "version": "1.0.0",
   "main": "cypress.config.js",
+  "type": "module",
   "devDependencies": {
     "cypress": "^13.15.0",
     "wick-a11y": "^1.2.2"

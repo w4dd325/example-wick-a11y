@@ -1,7 +1,7 @@
-const { defineConfig } = require("cypress");
-const addAccessibilityTasks = require('wick-a11y/accessibility-tasks');
+import { defineConfig } from "cypress";
+import addAccessibilityTasks from 'wick-a11y/accessibility-tasks';
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       addAccessibilityTasks(on);

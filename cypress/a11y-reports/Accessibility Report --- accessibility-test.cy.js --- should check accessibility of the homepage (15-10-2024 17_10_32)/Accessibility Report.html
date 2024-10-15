@@ -1,0 +1,288 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Accessibility Report (Axe-core®)</title>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            #root,body,html {
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 0.95em;
+            }
+
+            .header {
+                font-size: 2.3em;
+            }
+
+            /* Summary bubbles */
+            .summary {
+                font-size: 1.2em;
+                line-height: 18px;               
+            }
+
+            .row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                margin-bottom: 10px;
+
+                padding-top: 5px;
+            }
+
+            /* Clear floats after the columns */
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            /* Create two equal columns that floats next to each other */
+            .column {
+                float: left;
+                padding: 0px 10px;
+                line-height: 100%;
+                border-radius: 10px;
+                margin: 0px 5px;
+                word-break: break-word;
+            }
+
+            .single_column {
+                /* Firefox */
+                width: -moz-calc(100% - 10px);
+                /* WebKit */
+                width: -webkit-calc(100% - 10px);
+                /* Opera */
+                width: -o-calc(100% - 10px);
+                /* Standard */
+                width: calc(100% - 10px);
+
+                margin-bottom: 12px;
+            }
+
+            /* List style */
+            li { margin-bottom: 1rem; }
+
+            /* Tooltip container */
+            .tooltip {
+                position: relative;
+                display: inline-block;
+                border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+            }
+
+            .tooltip:hover {
+                /*position: relative;
+                display: inline-block;*/
+                border-bottom: 1px dotted #0000FF; /* If you want dots under the hoverable text */
+                color: #0000FF;
+            }
+
+            /* Tooltip text */
+            .summary .tooltip .tooltiptext {
+                font-size: 0.75em;
+                max-width: 600px
+            }
+
+            .tooltip .tooltiptext {
+                visibility: hidden;
+
+                /* Tooltip box */
+                width: max-content !important;
+                background-color: #555555;
+                color: #fff;
+                text-align: left;
+                padding: 10px;
+                border-radius: 6px;
+
+                /* Position the tooltip text */
+                position: absolute;
+                z-index: 1;
+                bottom: 125%;
+                left: 50%;
+                margin-left: -20px;
+
+                /* Fade in tooltip */
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            /* Tooltip arrow */
+            .tooltip .tooltiptext::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 20px;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: #555 transparent transparent transparent;
+            }
+
+            /* Show the tooltip text when you mouse over the tooltip container */
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+            }
+                
+            /* Screenshot image */
+            .imagecontainer {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+            
+            .image {
+                border: 2px solid;
+                padding: 10px;
+                box-shadow: 6px 4px 8px;
+                border-radius: 8px;
+            }
+
+            /* Footer */
+            .footer {
+                text-align: center;
+                margin: 10px 0px;
+            }
+        </style>
+    </head>
+    <body>
+        <div role="main">
+            <h1 class="header">Accessibility Report (Axe-core®)</h1>
+            <hr/>
+
+            <div class="row" role="region" aria-label="Main Summary">
+                <div class="column" style="background-color:#cce6ff; height: 100%;"  aria-label="Test Summary">
+                    <p class="summary"><strong>Spec: </strong>accessibility-test.cy.js</p>
+                    <p class="summary"><strong>Test: </strong>should check accessibility of the homepage</p>
+                    <p class="summary"><strong>Page URL: </strong>
+                        <a href="https://example.cypress.io/" target="_blank">https://example.cypress.io/</a>
+                    </p>
+                    <p class="summary"><strong>Generated on: </strong>Tue Oct 15 2024 17:10:32 GMT+0100 (British Summer Time)</p>
+                </div>
+                <div class="column" style="background-color:#cce6ff; height: 100%;" aria-label="Violations Summary by Severity">
+                    
+                        <p class="summary">🟥 <strong>
+                            <span aria="tooltip" class="tooltip">CRITICAL
+                                <span class="tooltiptext">A 'critical' accessibility violation represents a significant barrier that prevents users with disabilities
+               from accessing core functionality or content.<br>For example, images must have alternate text (alt text) to
+               ensure that visually impaired users can understand the content of the images through screen readers.
+               Missing alt text on critical images can be a substantial obstacle to accessibility.</span>
+                            </span>: </strong>0
+                        </p>
+                        <p class="summary">🟧 <strong>
+                            <span aria="tooltip" class="tooltip">SERIOUS
+                                <span class="tooltiptext">A 'serious' accessibility violation significantly degrades the user experience for individuals with disabilities
+               but does not completely block access.<br>For instance, elements must meet minimum color contrast ratio thresholds.
+               If text and background colors do not have sufficient contrast, users with visual impairments or color blindness may
+               find it difficult to read the content.</span>
+                            </span>: </strong>1
+                        </p>
+                        <p class="summary">🟨 <strong>
+                            <span aria="tooltip" class="tooltip">MODERATE
+                                <span class="tooltiptext">A 'moderate' accessibility violation impacts the user experience but with less severe consequences.
+               These issues can cause some confusion or inconvenience.<br>For example, all page content should be contained by landmarks.
+               Properly defining landmarks (like header, main, nav) helps screen reader users to navigate and understand the structure
+               of the page better.</span>
+                            </span>: </strong>n/a
+                        </p>
+                        <p class="summary">🟦 <strong>
+                            <span aria="tooltip" class="tooltip">MINOR
+                                <span class="tooltiptext">A 'minor' accessibility violation has a minimal impact on accessibility. These issues are typically more related to best
+               practices and can slightly inconvenience users.<br>For instance, the ARIA role should be appropriate for the element means
+               that ARIA roles assigned to elements should match their purpose to avoid confusion for screen reader users, though it does
+               not significantly hinder access if not perfectly used.</span>
+                            </span>: </strong>n/a
+                        </p>
+                </div>
+            </div>
+            <div class="single_column column" style="background-color:#e6f3ff; height: 100%;" role="region" aria-label="Analysis Conditions Summary">
+                <!-- Context -->
+                <p class="summary"><strong>
+                    <span aria="tooltip" class="tooltip">Context
+                        <span class="tooltiptext">Context defines the scope considered in the accessibility analysis, specifying which elements have been tested and which have not been tested.</span>
+                    </span>: </strong>(Entire document)
+                </p>
+
+                <!-- Severity (runOnly) -->
+                <p class="summary"><strong>
+                    <span aria="tooltip" class="tooltip">Tags
+                        <span class="tooltiptext">Tags define the severity of violations that have been considered in the accessibility analysis.</span>
+                    </span>: </strong>wcag2a, wcag2aa, wcag21a, wcag21aa, best-practice
+                </p>
+
+                <!-- Rules -->
+                
+            </div>
+            <hr/>
+            <h2 role="heading" >Accessibility Violations Details</h2>
+            <ul>
+                
+                <li>
+                    <strong>[🟧SERIOUS]: ELEMENTS MUST MEET MINIMUM COLOR CONTRAST RATIO THRESHOLDS<i> (Rule ID: color-contrast)</i></strong>
+                    <a href="https://dequeuniversity.com/rules/axe/4.10/color-contrast?application=axeAPI" target="_blank">More info</a>
+                    <br>
+                    <strong><p>Tags: cat.color, wcag2aa, wcag143, TTv5, TT13.c, EN-301-549, EN-9.1.4.3, ACT</p></strong>
+                    <ul>
+                    
+                        <li>
+                            (🛠️Fixme)▶ 
+                            <div aria="tooltip" class="tooltip">h1
+                                <span class="tooltiptext">Fix any of the following:<br>&nbsp;&nbsp;&nbsp;-   Element has insufficient color contrast of 2.38 (foreground color: #ffffff, background color: #00bf88, font size: 27.0pt (36px), font weight: normal). Expected contrast ratio of 3:1</span>
+                            </div>
+                        </li>
+                        <li>
+                            (🛠️Fixme)▶ 
+                            <div aria="tooltip" class="tooltip">.container > p
+                                <span class="tooltiptext">Fix any of the following:<br>&nbsp;&nbsp;&nbsp;-   Element has insufficient color contrast of 2.38 (foreground color: #ffffff, background color: #00bf88, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1</span>
+                            </div>
+                        </li>
+                        <li>
+                            (🛠️Fixme)▶ 
+                            <div aria="tooltip" class="tooltip">a[href$="www.cypress.io"]
+                                <span class="tooltiptext">Fix any of the following:<br>&nbsp;&nbsp;&nbsp;-   Element has insufficient color contrast of 2.38 (foreground color: #ffffff, background color: #00bf88, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1</span>
+                            </div>
+                        </li>
+                        <li>
+                            (🛠️Fixme)▶ 
+                            <div aria="tooltip" class="tooltip">a[href$="docs.cypress.io"]
+                                <span class="tooltiptext">Fix any of the following:<br>&nbsp;&nbsp;&nbsp;-   Element has insufficient color contrast of 2.38 (foreground color: #ffffff, background color: #00bf88, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1</span>
+                            </div>
+                        </li>
+                        <li>
+                            (🛠️Fixme)▶ 
+                            <div aria="tooltip" class="tooltip">.banner-alt:nth-child(3) > .container > .row > .col-xs-12 > p
+                                <span class="tooltiptext">Fix any of the following:<br>&nbsp;&nbsp;&nbsp;-   Element has insufficient color contrast of 4.37 (foreground color: #6b707c, background color: #eef1f4, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1</span>
+                            </div>
+                        </li>
+                        <li>
+                            (🛠️Fixme)▶ 
+                            <div aria="tooltip" class="tooltip">.banner-alt:nth-child(5) > .container > .row > .col-xs-12 > p
+                                <span class="tooltiptext">Fix any of the following:<br>&nbsp;&nbsp;&nbsp;-   Element has insufficient color contrast of 4.37 (foreground color: #6b707c, background color: #eef1f4, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1</span>
+                            </div>
+                        </li>
+                        <li>
+                            (🛠️Fixme)▶ 
+                            <div aria="tooltip" class="tooltip">.banner-alt:nth-child(7) > .container > .row > .col-xs-12 > p
+                                <span class="tooltiptext">Fix any of the following:<br>&nbsp;&nbsp;&nbsp;-   Element has insufficient color contrast of 4.37 (foreground color: #6b707c, background color: #eef1f4, font size: 13.5pt (18px), font weight: normal). Expected contrast ratio of 4.5:1</span>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <hr/>
+
+            <h2 role="heading" id="violations-screenshot">Accessibility Violations Screenshot</h2>
+            <div role="img" aria-labelledby="violations-screenshot" class="imagecontainer">
+                <img width="98%" class="image" src="Accessibility Issues Image.png" alt="Accessibility Violations Screenshot Colored by Severity" />
+            </div>
+            <hr/>
+
+            <p class="footer">🎓 As per the axe-core® library: it can find on average 57% of WCAG issues automatically; it also only analyzes DOM elements that are visible in the browser viewport. 
+Axe-core® <https://github.com/dequelabs/axe-core> is a trademark of Deque Systems, Inc <https://www.deque.com/>. in the US and other countries.</p>
+        </div>
+    </body>
+    </html>
+    

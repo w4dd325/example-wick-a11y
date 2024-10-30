@@ -12,18 +12,14 @@ npm install wick-a11y --save-dev
 
 Add the following into the ```cypress.config.js``` file.
 ```javascript
-const { defineConfig } = require("cypress");
+import { defineConfig } from "cypress";
+import addAccessibilityTasks from 'wick-a11y/accessibility-tasks';
 
-// Import the accessibility tasks from wick-a11y plugin
-const addAccessibilityTasks = require('wick-a11y/accessibility-tasks');
-
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // Add accessibility tasks
       addAccessibilityTasks(on);
-    },
-    
+    },    
     // ... rest of the configuration
   },
 });
@@ -36,11 +32,15 @@ import 'wick-a11y';
 
 Configure the reports folder path (if different to the default) in the ```cypress.config.js``` file.
 ```javascript
-module.exports = defineConfig({
-  // [...]
-  accessibilityFolder: 'cypress/your-accessibility-reports-folder',
-  // [...]
+export default defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      addAccessibilityTasks(on);
+    },
+  },
+  accessibilityFolder: 'cypress/a11y-reports',
 });
+
 ```
 
 Add ```cy.chackAccessibillity();``` to your spec files;
@@ -54,6 +54,13 @@ describe('Accessibility Test', () => {
     cy.checkAccessibility();
   });
 });
+```
+
+Example of running against only the wcag2.2aa rules.
+```
+cy.checkAccessibility(null, {
+      runOnly: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag2a', 'wcag22aa']
+    });
 ```
 
 ## :link: Links  
